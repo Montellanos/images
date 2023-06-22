@@ -1,0 +1,8 @@
+FROM sonarsource/sonar-scanner-cli:4.8.0
+
+COPY . .
+
+RUN sonar-scanner
+
+
+
