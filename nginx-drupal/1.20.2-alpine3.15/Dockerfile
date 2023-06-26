@@ -52,7 +52,7 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
 
 RUN wget --no-verbose https://download.newrelic.com/php_agent/archive/${NEWRELIC_PHP_AGENT_VERSION}/newrelic-php5-${NEWRELIC_PHP_AGENT_VERSION}-linux-musl.tar.gz \
 && tar -xvf newrelic-php5-${NEWRELIC_PHP_AGENT_VERSION}-linux-musl.tar.gz \
-&& NR_INSTALL_SILENT=1 ./newrelic-php5-${NEWRELIC_PHP_AGENT_VERSION}-linux-musl/newrelic-install install_daemon\
+&& NR_INSTALL_USE_CP_NOT_LN=1 NR_INSTALL_SILENT=1 ./newrelic-php5-${NEWRELIC_PHP_AGENT_VERSION}-linux-musl/newrelic-install install\
 && rm -rf newrelic-php5-${NEWRELIC_PHP_AGENT_VERSION}-linux-musl.tar.gz \
 && rm -rf newrelic-php5-${NEWRELIC_PHP_AGENT_VERSION}-linux-musl
 
