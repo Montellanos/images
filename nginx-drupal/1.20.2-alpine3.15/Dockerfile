@@ -8,6 +8,7 @@ LABEL license="Apache License 2.0"
 ENV NGINX_VERSION=1.20.2-r1
 ENV PHP_VERSION=7.4.33-r1
 ENV COMPOSER_VERSION=2.5.7
+ENV NEWRELIC_PHP_AGENT_VERSION=9.16.0.295
 
 RUN apk update && apk add --no-cache \
 openssl=1.1.1u-r1 \
@@ -44,9 +45,16 @@ php7-pear=${PHP_VERSION} \
 php7-xdebug \
 php7-zip=${PHP_VERSION} 
 
-RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-RUN php composer-setup.php --install-dir=/usr/bin --filename=composer --version=${COMPOSER_VERSION} \
-RUN php -r "unlink('composer-setup.php');"
+RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
+&& php composer-setup.php --install-dir=/usr/bin --filename=composer --version=${COMPOSER_VERSION} \
+&& php -r "unlink('composer-setup.php');"
+
+
+RUN wget --no-verbose https://download.newrelic.com/php_agent/archive/${NEWRELIC_PHP_AGENT_VERSION}/newrelic-php5-${NEWRELIC_PHP_AGENT_VERSION}-linux-musl.tar.gz \
+&& tar -xvf newrelic-php5-${NEWRELIC_PHP_AGENT_VERSION}-linux-musl.tar.gz \
+&& NR_INSTALL_SILENT=1 ./newrelic-php5-${NEWRELIC_PHP_AGENT_VERSION}-linux-musl/newrelic-install install_daemon\
+&& rm -rf newrelic-php5-${NEWRELIC_PHP_AGENT_VERSION}-linux-musl.tar.gz \
+&& rm -rf newrelic-php5-${NEWRELIC_PHP_AGENT_VERSION}-linux-musl
 
 COPY ./xdebug.ini /etc/php7/conf.d/docker-php-ext-xdebug.ini
 
