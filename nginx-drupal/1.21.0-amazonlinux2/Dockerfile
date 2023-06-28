@@ -11,6 +11,7 @@ ENV HEADERS_MORE_NGINX_MODULE_VERSION=0.33
 ENV PHP_VERSION=7.4.33-1.amzn2
 ENV COMPOSER_VERSION=2.5.7
 ENV XDEBUG_VERSION=3.0.4
+ENV NEWRELIC_PHP_AGENT_VERSION=9.16.0.295
 
 RUN yum update -y -q \
   && yum install -y -q \
@@ -62,21 +63,24 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
   && php composer-setup.php --install-dir=/usr/local/bin --filename=composer --version-${COMPOSER_VERSION} \
   && php -r "unlink('composer-setup.php');"
 
-RUN curl -sLO https://xdebug.org/files/xdebug-${XDEBUG_VERSION}.tgz \
-  && tar -xvzf xdebug-${XDEBUG_VERSION}.tgz \
-  && cd xdebug-${XDEBUG_VERSION} \
-  && phpize \
-  && ./configure \
-  && make \
-  && make install
-
-COPY ./xdebug.ini /etc/php.d/50-xdebug.ini
-
 RUN sed -i \
   -e 's/^listen =.*/listen = 127.0.0.1:9000/' \
   /etc/php-fpm.d/www.conf
 
+RUN curl -sLO https://xdebug.org/files/xdebug-${XDEBUG_VERSION}.tgz \
+  && tar -xzvf xdebug-${XDEBUG_VERSION}.tgz \
+  && cd xdebug-${XDEBUG_VERSION} \
+  && phpize \
+  && ./configure \
+  && make \
+  && make install \
+  && cd .. \
+  && rm -rf xdebug-${XDEBUG_VERSION}.tgz xdebug-${XDEBUG_VERSION}
 
+COPY ./xdebug.ini /etc/php.d/50-xdebug.ini
+
+RUN rpm -Uvh http://yum.newrelic.com/pub/newrelic/el5/x86_64/newrelic-repo-5-3.noarch.rpm \
+&& yum install -y newrelic-php5-${NEWRELIC_PHP_AGENT_VERSION}
 
 RUN  yum clean all -y \
   && rm -rf /var/cache/yum
