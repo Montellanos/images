@@ -11,7 +11,7 @@ ENV HEADERS_MORE_NGINX_MODULE_VERSION=0.33
 ENV PHP_VERSION=7.4.33-1.amzn2
 ENV COMPOSER_VERSION=2.5.7
 ENV XDEBUG_VERSION=3.0.4
-ENV NEWRELIC_PHP_AGENT_VERSION=9.16.0.295
+ENV NEWRELIC_PHP_AGENT_VERSION=10.11.0.3
 
 RUN yum update -y -q \
   && yum install -y -q \
@@ -26,7 +26,8 @@ RUN yum update -y -q \
   gcc-7.3.1-15.amzn2 \
   autoconf-2.69-11.amzn2 \
   pkg-config-0.27.1-4.amzn2.0.2 \
-  php-devel-5.4.16-46.amzn2.0.2
+  php-devel-5.4.16-46.amzn2.0.2 \
+  nfs-utils-1.3.0-0.54.amzn2.0.2
 
 RUN curl -sLO http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz \
   && tar -xzvf nginx-${NGINX_VERSION}.tar.gz \
@@ -56,15 +57,15 @@ RUN yum install -y -q \
   php-pecl-igbinary-3.1.2-1.amzn2 \
   php-pecl-redis-5.2.1-1.amzn2 \
   php-soap-${PHP_VERSION} \
-  php-xml-${PHP_VERSION} 
-
+  php-xml-${PHP_VERSION}
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
   && php composer-setup.php --install-dir=/usr/local/bin --filename=composer --version-${COMPOSER_VERSION} \
   && php -r "unlink('composer-setup.php');"
 
 RUN sed -i \
-  -e 's/^listen =.*/listen = 127.0.0.1:9000/' \
+  -e 's|^listen =.*|listen = 127.0.0.1:9000|' \
+  -e 's|^php_admin_value\[error_log\] =.*|php_admin_value[error_log] = /proc/1/fd/1|' \
   /etc/php-fpm.d/www.conf
 
 RUN curl -sLO https://xdebug.org/files/xdebug-${XDEBUG_VERSION}.tgz \
@@ -84,4 +85,3 @@ RUN rpm -Uvh http://yum.newrelic.com/pub/newrelic/el5/x86_64/newrelic-repo-5-3.n
 
 RUN  yum clean all -y \
   && rm -rf /var/cache/yum
-

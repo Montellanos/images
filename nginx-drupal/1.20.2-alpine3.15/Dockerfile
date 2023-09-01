@@ -11,7 +11,7 @@ ENV COMPOSER_VERSION=2.5.8
 ENV NEWRELIC_PHP_AGENT_VERSION=10.11.0.3
 
 RUN apk update && apk add --no-cache \
-  openssl=1.1.1u-r1 \
+  openssl=1.1.1v-r0 \
   nginx=${NGINX_VERSION} \
   nginx-mod-http-headers-more=${NGINX_VERSION} \
   git=2.34.8-r0 \
