@@ -27,7 +27,9 @@ RUN yum update -y -q \
   autoconf-2.69-11.amzn2 \
   pkg-config-0.27.1-4.amzn2.0.2 \
   php-devel-5.4.16-46.amzn2.0.2 \
-  nfs-utils-1.3.0-0.54.amzn2.0.2
+  nfs-utils-1.3.0-0.54.amzn2.0.2 \
+  python2-botocore-1.18.6-1.amzn2.0.3 \
+  deltarpm-3.6-3.amzn2.0.2
 
 RUN curl -sLO http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz \
   && tar -xzvf nginx-${NGINX_VERSION}.tar.gz \
