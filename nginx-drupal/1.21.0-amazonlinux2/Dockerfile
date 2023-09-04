@@ -18,17 +18,13 @@ RUN yum update -y -q \
   git-2.40.1-1.amzn2.0.1 \
   unzip-6.0-57.amzn2.0.1 \
   tar-1.26-35.amzn2.0.2 \
-  gzip-1.5-10.amzn2.0.1 \
   make-3.82-24.amzn2 \
   gcc-c++-7.3.1-15.amzn2 \
   pcre-devel-8.32-17.amzn2.0.3 \
   zlib-devel-1.2.7-19.amzn2.0.2 \
   gcc-7.3.1-15.amzn2 \
   autoconf-2.69-11.amzn2 \
-  pkg-config-0.27.1-4.amzn2.0.2 \
   php-devel-5.4.16-46.amzn2.0.2 \
-  nfs-utils-1.3.0-0.54.amzn2.0.2 \
-  python2-botocore-1.18.6-1.amzn2.0.3 \
   deltarpm-3.6-3.amzn2.0.2
 
 RUN curl -sLO http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz \
@@ -82,7 +78,7 @@ RUN curl -sLO https://xdebug.org/files/xdebug-${XDEBUG_VERSION}.tgz \
 
 COPY ./xdebug.ini /etc/php.d/50-xdebug.ini
 
-RUN rpm -Uvh http://yum.newrelic.com/pub/newrelic/el5/x86_64/newrelic-repo-5-3.noarch.rpm \
+RUN rpm -Uvh https://yum.newrelic.com/pub/newrelic/el5/x86_64/newrelic-repo-5-3.noarch.rpm \
 && yum install -y newrelic-php5-${NEWRELIC_PHP_AGENT_VERSION}
 
 RUN  yum clean all -y \
