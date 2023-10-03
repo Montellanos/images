@@ -8,7 +8,7 @@ LABEL license="Apache License 2.0"
 ENV NGINX_VERSION=1.20.2-r1
 ENV PHP_VERSION=7.4.33-r1
 ENV COMPOSER_VERSION=2.5.8
-ENV NEWRELIC_PHP_AGENT_VERSION=10.11.0.3
+ENV NEWRELIC_PHP_AGENT_VERSION=9.16.0.295
 
 RUN apk update && apk add --no-cache \
   openssl=1.1.1v-r0 \
@@ -56,6 +56,3 @@ RUN wget --no-verbose https://download.newrelic.com/php_agent/archive/${NEWRELIC
   && NR_INSTALL_USE_CP_NOT_LN=1 NR_INSTALL_SILENT=1 ./newrelic-php5-${NEWRELIC_PHP_AGENT_VERSION}-linux-musl/newrelic-install install\
   && rm -rf newrelic-php5-${NEWRELIC_PHP_AGENT_VERSION}-linux-musl.tar.gz \
   && rm -rf newrelic-php5-${NEWRELIC_PHP_AGENT_VERSION}-linux-musl
-
-RUN mkdir /var/www/html \
-  && chmod -R 755 /var/www/html
