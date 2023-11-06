@@ -5,13 +5,13 @@ LABEL description="Alpine based image to create containers based on nginx and dr
 LABEL version="1.20.2-alpine3.15"
 LABEL license="Apache License 2.0"
 
-ENV NGINX_VERSION=1.20.2-r1
+ENV NGINX_VERSION=1.20.2-r2
 ENV PHP_VERSION=7.4.33-r1
 ENV COMPOSER_VERSION=2.5.8
-ENV NEWRELIC_PHP_AGENT_VERSION=9.16.0.295
+ENV NEWRELIC_PHP_AGENT_VERSION=10.13.0.2
 
 RUN apk update && apk add --no-cache \
-  openssl=1.1.1v-r0 \
+  openssl=1.1.1w-r0 \
   nginx=${NGINX_VERSION} \
   nginx-mod-http-headers-more=${NGINX_VERSION} \
   git=2.34.8-r0 \
