@@ -86,4 +86,3 @@ RUN rpm -Uvh https://yum.newrelic.com/pub/newrelic/el5/x86_64/newrelic-repo-5-3.
 RUN  yum clean all -y \
   && rm -rf /var/cache/yum
 
-RUN chmod -R 755 /var/www/html

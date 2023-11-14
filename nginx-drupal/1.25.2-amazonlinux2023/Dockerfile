@@ -76,7 +76,7 @@ RUN curl -sLO https://xdebug.org/files/xdebug-${XDEBUG_VERSION}.tgz \
 
 COPY ./xdebug.ini /etc/php.d/50-xdebug.ini
 
-RUN curl -sLO https://download.newrelic.com/php_agent/release/newrelic-php5-${NEWRELIC_PHP_AGENT_VERSION}-linux.tar.gz \
+RUN curl -sLO https://download.newrelic.com/php_agent/archive/${NEWRELIC_PHP_AGENT_VERSION}/newrelic-php5-${NEWRELIC_PHP_AGENT_VERSION}-linux.tar.gz \
   && tar -xzvf newrelic-php5-${NEWRELIC_PHP_AGENT_VERSION}-linux.tar.gz \
   && cd newrelic-php5-${NEWRELIC_PHP_AGENT_VERSION}-linux \
   && ln -s /etc/rc.d/init.d /etc/init.d \
@@ -89,4 +89,3 @@ RUN curl -sLO https://download.newrelic.com/php_agent/release/newrelic-php5-${NE
 RUN  yum clean all -y \
   && rm -rf /var/cache/yum
 
-RUN chmod -R 755 /var/www/html
