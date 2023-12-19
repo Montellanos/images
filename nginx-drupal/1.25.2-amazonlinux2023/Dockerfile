@@ -20,7 +20,7 @@ RUN yum update -y -q \
   make-4.3-5.amzn2023.0.2 \
   gcc-c++-11.4.1-2.amzn2023.0.2 \
   pcre-devel-8.44-3.amzn2023.1.0.3 \
-  zlib-devel-1.2.11-33.amzn2023.0.4 \
+  zlib-devel-1.2.11-33.amzn2023.0.5 \
   gcc-11.4.1-2.amzn2023.0.2 \
   autoconf-2.69-36.amzn2023.0.3
 
