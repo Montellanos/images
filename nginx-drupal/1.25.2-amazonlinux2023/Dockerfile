@@ -16,7 +16,7 @@ RUN yum update -y -q \
   && yum install -y -q \
   git-2.40.1-1.amzn2023.0.1 \
   unzip-6.0-57.amzn2023.0.2 \
-  tar-1.34-1.amzn2023.0.3 \
+  tar-1.34-1.amzn2023.0.4 \
   make-4.3-5.amzn2023.0.2 \
   gcc-c++-11.4.1-2.amzn2023.0.2 \
   pcre-devel-8.44-3.amzn2023.1.0.3 \
