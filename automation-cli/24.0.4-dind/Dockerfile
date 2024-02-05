@@ -5,7 +5,7 @@ LABEL description="This image contains minor automation tools for Gitlab CI"
 LABEL version="24.0.4-dind"
 LABEL license="Apache License 2.0"
 
-ENV TRIVY_VERSION=0.49.0
+ENV TRIVY_VERSION=0.47.0
 
 RUN apk add --no-cache python3=3.11.6-r0 \
   py3-pip=23.1.2-r0 \
