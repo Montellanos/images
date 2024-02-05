@@ -8,4 +8,4 @@ docker tag unreleaseduser/nginx-drupal:1.25.2-amazonlinux2023  unreleaseduser/ng
 
 docker push unreleaseduser/nginx-drupal:1.25.2-amazonlinux2023 
 
-docker run aquasec/trivy image unreleaseduser/nginx-drupal:1.25.2-amazonlinux2023  
+docker run aquasec/trivy image unreleaseduser/nginx-drupal:1.25.2-amazonlinux2023
