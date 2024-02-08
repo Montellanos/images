@@ -41,6 +41,8 @@ RUN apk update && apk add --no-cache \
   php81-pecl-xdebug=3.3.1-r0 \
   php81-zip=${PHP_VERSION} 
 
+RUN ln -s /usr/bin/php81 /usr/bin/php
+RUN ln -s /usr/sbin/php-fpm81 /usr/sbin/php-fpm
 
 RUN sed -i \
   -e 's|^memory_limit = 128M|memory_limit = 512M|' \
