@@ -48,9 +48,9 @@ RUN sed -i \
   -e 's|^memory_limit = 128M|memory_limit = 512M|' \
   /etc/php81/php.ini
 
-RUN php81 -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
-  && php81 composer-setup.php --install-dir=/usr/bin --filename=composer --version=${COMPOSER_VERSION} \
-  && php81 -r "unlink('composer-setup.php');"
+RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
+  && php composer-setup.php --install-dir=/usr/bin --filename=composer --version=${COMPOSER_VERSION} \
+  && php -r "unlink('composer-setup.php');"
 
 RUN sed -i \
   -e 's|^;clear_env = no|clear_env = no|' \
