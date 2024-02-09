@@ -8,9 +8,8 @@ LABEL license="Apache License 2.0"
 ENV NGINX_VERSION=1.25.2
 ENV HEADERS_MORE_NGINX_MODULE_VERSION=0.34
 ENV PHP_VERSION=8.1.23-1.amzn2023.0.1
-ENV COMPOSER_VERSION=2.6.5
+ENV COMPOSER_VERSION=2.7.0
 ENV XDEBUG_VERSION=3.2.2
-ENV NEWRELIC_PHP_AGENT_VERSION=10.13.0.2
 
 RUN yum update -y -q \
   && yum install -y -q \
@@ -76,16 +75,6 @@ RUN curl -sLO https://xdebug.org/files/xdebug-${XDEBUG_VERSION}.tgz \
   && rm -rf xdebug-${XDEBUG_VERSION}.tgz xdebug-${XDEBUG_VERSION}
 
 COPY ./xdebug.ini /etc/php.d/50-xdebug.ini
-
-RUN curl -sLO https://download.newrelic.com/php_agent/archive/${NEWRELIC_PHP_AGENT_VERSION}/newrelic-php5-${NEWRELIC_PHP_AGENT_VERSION}-linux.tar.gz \
-  && tar -xzvf newrelic-php5-${NEWRELIC_PHP_AGENT_VERSION}-linux.tar.gz \
-  && cd newrelic-php5-${NEWRELIC_PHP_AGENT_VERSION}-linux \
-  && ln -s /etc/rc.d/init.d /etc/init.d \
-  && export NR_INSTALL_USE_CP_NOT_LN=1 \
-  && export NR_INSTALL_SILENT=1 \
-  && ./newrelic-install install \
-  && cd .. \
-  && rm -rf newrelic-php5-${NEWRELIC_PHP_AGENT_VERSION}-linux newrelic-php5-${NEWRELIC_PHP_AGENT_VERSION}-linux.tar.gz
 
 RUN  yum clean all -y \
   && rm -rf /var/cache/yum
