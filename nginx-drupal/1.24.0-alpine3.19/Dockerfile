@@ -39,7 +39,7 @@ RUN apk update && apk add --no-cache \
   php81-phar=${PHP_VERSION} \
   php81-pear=${PHP_VERSION} \
   php81-pecl-xdebug=3.3.1-r0 \
-  php81-zip=${PHP_VERSION} 
+  php81-zip=${PHP_VERSION}
 
 RUN ln -s /usr/bin/php81 /usr/bin/php
 RUN ln -s /usr/sbin/php-fpm81 /usr/sbin/php-fpm
@@ -60,4 +60,5 @@ RUN sed -i \
 RUN mkdir -p /var/run/php-fpm/
 
 COPY ./xdebug.ini /etc/php81/conf.d/docker-php-ext-xdebug.ini
-
+COPY ./default.conf /etc/nginx/http.d/default.conf
+COPY ./html /etc/nginx/html
