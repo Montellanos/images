@@ -5,7 +5,7 @@ LABEL description="This image contains minor automation tools for Gitlab CI"
 LABEL version="25.0.2-dind"
 LABEL license="Apache License 2.0"
 
-ENV TRIVY_VERSION=0.49.0
+ENV TRIVY_VERSION=0.49.1
 
 RUN apk add --no-cache \
   wget=1.21.4-r0 \
@@ -18,3 +18,6 @@ RUN wget --no-verbose https://github.com/aquasecurity/trivy/releases/download/v$
   && mv contrib /usr/local/templates/ \
   && mv trivy /usr/local/bin/trivy \
   && rm trivy.tar.gz
+
+RUN apk del wget \
+  rm -rf /var/cache/apk/*
