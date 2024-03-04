@@ -13,7 +13,8 @@ RUN apk add --no-cache \
   wget=1.21.4-r0 \
   jq=1.6-r4 \
   openssl=3.1.1-r3 \
-  busybox=1.36.1-r1
+  busybox=1.36.1-r0 \
+  git=2.40.1-r0
 
 RUN pip3 install awscli==1.32.34
 
