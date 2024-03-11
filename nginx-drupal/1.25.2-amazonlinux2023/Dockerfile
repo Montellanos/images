@@ -21,14 +21,16 @@ RUN yum update -y -q \
   pcre-devel-8.44-3.amzn2023.1.0.3 \
   zlib-devel-1.2.11-33.amzn2023.0.5 \
   gcc-11.4.1-2.amzn2023.0.2 \
-  autoconf-2.69-36.amzn2023.0.3
+  autoconf-2.69-36.amzn2023.0.3 \
+  openssl-3.0.8-1.amzn2023.0.11.x86_64 \
+  openssl-devel-3.0.8-1.amzn2023.0.11.x86_64
 
 RUN curl -sLO https://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz \
   && tar -xzvf nginx-${NGINX_VERSION}.tar.gz \
   && curl -sLO https://github.com/openresty/headers-more-nginx-module/archive/v${HEADERS_MORE_NGINX_MODULE_VERSION}.tar.gz \
   && tar -xzvf v${HEADERS_MORE_NGINX_MODULE_VERSION}.tar.gz \
   && cd nginx-${NGINX_VERSION} \
-  && ./configure --with-compat --add-dynamic-module=../headers-more-nginx-module-${HEADERS_MORE_NGINX_MODULE_VERSION} \
+  && ./configure --with-http_ssl_module --with-compat --add-dynamic-module=../headers-more-nginx-module-${HEADERS_MORE_NGINX_MODULE_VERSION} \
   && make modules -s \
   && make install -s \
   && cd .. \
