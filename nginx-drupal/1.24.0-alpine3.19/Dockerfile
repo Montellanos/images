@@ -53,8 +53,14 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
   && php -r "unlink('composer-setup.php');"
 
 RUN sed -i \
+  -e 's|^;error_log =.*|error_log = /proc/1/fd/1|' \
+  -e 's|^;log_level =.*|log_level = debug|' \
+  /etc/php81/php-fpm.conf
+
+RUN sed -i \
   -e 's|^;clear_env = no|clear_env = no|' \
   -e 's|^listen =.*|listen = 127.0.0.1:9000|' \
+  -e 's|^;catch_workers_output =.*|catch_workers_output = yes|' \
   -e 's|^;php_flag\[display_errors\] =.*|php_flag[display_errors] = on|' \
   -e 's|^;php_admin_value\[error_log\] =.*|php_admin_value[error_log] = /proc/1/fd/1|' \
   -e 's|^;php_admin_flag\[log_errors\] =.*|php_admin_flag[log_errors] = on|' \
