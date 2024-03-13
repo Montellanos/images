@@ -45,7 +45,11 @@ RUN ln -s /usr/bin/php81 /usr/bin/php
 RUN ln -s /usr/sbin/php-fpm81 /usr/sbin/php-fpm
 
 RUN sed -i \
-  -e 's|^memory_limit = 128M|memory_limit = 512M|' \
+  -e 's|^max_execution_time =.*|max_execution_time = 120|' \
+  -e 's|^max_input_time =.*|max_input_time = 120|' \
+  -e 's|^memory_limit =.*|memory_limit = 512M|' \
+  -e 's|^post_max_size =.*|post_max_size = 10M|' \
+  -e 's|^upload_max_filesize =.*|upload_max_filesize = 10M|' \
   /etc/php81/php.ini
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
