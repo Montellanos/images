@@ -25,7 +25,7 @@ RUN curl -sLO http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz \
   && tar -xzvf v${HEADERS_MORE_NGINX_MODULE_VERSION}.tar.gz \
   && cd nginx-${NGINX_VERSION} \
   && sed -i "s/#define NGX_CONF_BUFFER .*/#define NGX_CONF_BUFFER $NGX_CONF_BUFFER_SIZE/" src/core/ngx_conf_file.c \
-  && ./configure --with-compat --add-dynamic-module=../headers-more-nginx-module-${HEADERS_MORE_NGINX_MODULE_VERSION} \
+  && ./configure --with-http_ssl_module --with-compat --add-dynamic-module=../headers-more-nginx-module-${HEADERS_MORE_NGINX_MODULE_VERSION} \
   && make modules -s \
   && make install -s \
   && cd .. \

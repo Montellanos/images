@@ -7,7 +7,7 @@ LABEL license="Apache License 2.0"
 
 ENV NGINX_VERSION=1.25.2
 ENV HEADERS_MORE_NGINX_MODULE_VERSION=0.34
-ENV PHP_VERSION=8.1.23-1.amzn2023.0.1
+ENV PHP_VERSION=8.2.15-1.amzn2023.0.1
 ENV COMPOSER_VERSION=2.7.0
 ENV XDEBUG_VERSION=3.2.2
 
@@ -36,20 +36,22 @@ RUN curl -sLO https://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz \
   && cd .. \
   && rm -rf nginx-${NGINX_VERSION}.tar.gz nginx-${NGINX_VERSION} v${HEADERS_MORE_NGINX_MODULE_VERSION}.tar.gz headers-more-nginx-module-${HEADERS_MORE_NGINX_MODULE_VERSION}
 
+RUN ln -s /usr/local/nginx/sbin/nginx /usr/bin/nginx
+
 RUN yum install -y -q \
-  php8.1-${PHP_VERSION} \
-  php8.1-bcmath-${PHP_VERSION}  \
-  php8.1-cli-${PHP_VERSION}  \
-  php8.1-fpm-${PHP_VERSION}  \
-  php8.1-common-${PHP_VERSION}  \
-  php8.1-gd-${PHP_VERSION}  \
-  php8.1-mbstring-${PHP_VERSION}  \
-  php8.1-mysqlnd-${PHP_VERSION}  \
-  php8.1-opcache-${PHP_VERSION}  \
-  php8.1-pdo-${PHP_VERSION}  \
-  php8.1-soap-${PHP_VERSION} \
-  php8.1-xml-${PHP_VERSION} \
-  php8.1-devel-${PHP_VERSION}
+  php8.2-${PHP_VERSION} \
+  php8.2-bcmath-${PHP_VERSION}  \
+  php8.2-cli-${PHP_VERSION}  \
+  php8.2-fpm-${PHP_VERSION}  \
+  php8.2-common-${PHP_VERSION}  \
+  php8.2-gd-${PHP_VERSION}  \
+  php8.2-mbstring-${PHP_VERSION}  \
+  php8.2-mysqlnd-${PHP_VERSION}  \
+  php8.2-opcache-${PHP_VERSION}  \
+  php8.2-pdo-${PHP_VERSION}  \
+  php8.2-soap-${PHP_VERSION} \
+  php8.2-xml-${PHP_VERSION} \
+  php8.2-devel-${PHP_VERSION}
 
 RUN sed -i \
   -e 's|^memory_limit = 128M|memory_limit = 512M|' \
@@ -63,10 +65,10 @@ RUN sed -i \
   -e 's|^;clear_env = no|clear_env = no|' \
   -e 's|^listen =.*|listen = 127.0.0.1:9000|' \
   /etc/php-fpm.d/www.conf
-RUN mkdir -p /var/run/php-fpm/
 
+RUN mkdir -p /var/run/php-fpm/
 RUN mkdir -p /var/log/nginx
-RUN mkdir -p /var/run/php-fpm
+RUN mkdir -p /var/log/php-fpm
 
 RUN curl -sLO https://xdebug.org/files/xdebug-${XDEBUG_VERSION}.tgz \
   && tar -xzvf xdebug-${XDEBUG_VERSION}.tgz \
@@ -82,4 +84,3 @@ COPY ./xdebug.ini /etc/php.d/50-xdebug.ini
 
 RUN  yum clean all -y \
   && rm -rf /var/cache/yum
-
