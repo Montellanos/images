@@ -39,7 +39,8 @@ RUN apk update && apk add --no-cache \
   php82-phar=${PHP_VERSION} \
   php82-pear=${PHP_VERSION} \
   php82-pecl-xdebug=3.3.1-r0 \
-  php82-zip=${PHP_VERSION}
+  php82-zip=${PHP_VERSION} \
+  && rm -rf /var/cache/apk/*
 
 RUN ln -s /usr/sbin/php-fpm82 /usr/sbin/php-fpm
 
