@@ -10,18 +10,17 @@ ENV NGX_CONF_BUFFER_SIZE=8192
 ENV HEADERS_MORE_NGINX_MODULE_VERSION=0.37
 
 RUN apk update && apk add --no-cache \
-  curl=8.5.0-r0 \
+  wget=1.21.4-r0 \
   make=4.4.1-r2 \
   gcc=13.2.1_git20231014-r0 \
   g++=13.2.1_git20231014-r0 \
-  openssl-dev=3.1.4-r5 \
+  openssl-dev=3.1.4-r6 \
   pcre-dev=8.45-r3 \
-  zlib-dev=1.3.1-r0 \
-  && rm -rf /var/cache/apk/*
+  zlib-dev=1.3.1-r0
 
-RUN curl -sLO http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz \
+RUN wget --no-verbose http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz \
   && tar -xzvf nginx-${NGINX_VERSION}.tar.gz \
-  && curl -sLO https://github.com/openresty/headers-more-nginx-module/archive/v${HEADERS_MORE_NGINX_MODULE_VERSION}.tar.gz \
+  && wget --no-verbose https://github.com/openresty/headers-more-nginx-module/archive/v${HEADERS_MORE_NGINX_MODULE_VERSION}.tar.gz \
   && tar -xzvf v${HEADERS_MORE_NGINX_MODULE_VERSION}.tar.gz \
   && cd nginx-${NGINX_VERSION} \
   && sed -i "s/#define NGX_CONF_BUFFER .*/#define NGX_CONF_BUFFER $NGX_CONF_BUFFER_SIZE/" src/core/ngx_conf_file.c \

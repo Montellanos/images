@@ -9,7 +9,7 @@ ENV TRIVY_VERSION=0.50.1
 ENV ARGOCD_VERSION=v2.10.6
 
 RUN apk add --no-cache \
-  openssl=3.1.4-r5 \
+  openssl=3.1.4-r6 \
   busybox=1.36.1-r15 \
   openssh-client-common=9.6_p1-r0 \
   openssh=9.6_p1-r0 \
