@@ -6,14 +6,17 @@ LABEL version="1.24.0-alpine3.19"
 LABEL license="Apache License 2.0"
 
 ENV NGINX_VERSION=1.24.0-r15
-ENV PHP_VERSION=8.2.17-r0
-ENV COMPOSER_VERSION=2.7.0
+ENV PHP_VERSION=8.2.18-r0
+ENV COMPOSER_VERSION=2.7.2
 
 RUN apk update && apk add --no-cache \
   nginx=${NGINX_VERSION} \
   nginx-mod-http-headers-more=${NGINX_VERSION} \
   git=2.43.0-r0 \
   unzip=6.0-r14 \
+  jq=1.7.1-r0 \
+  libcrypto3=3.1.4-r6 \
+  libssl3=3.1.4-r6 \
   php82=${PHP_VERSION} \
   php82-bcmath=${PHP_VERSION} \
   php82-fpm=${PHP_VERSION} \
@@ -38,9 +41,8 @@ RUN apk update && apk add --no-cache \
   php82-pdo_mysql=${PHP_VERSION} \
   php82-phar=${PHP_VERSION} \
   php82-pear=${PHP_VERSION} \
-  php82-pecl-xdebug=3.3.1-r0 \
-  php82-zip=${PHP_VERSION} \
-  && rm -rf /var/cache/apk/*
+  php82-pecl-xdebug=3.3.2-r0 \
+  php82-zip=${PHP_VERSION}
 
 RUN ln -s /usr/sbin/php-fpm82 /usr/sbin/php-fpm
 
