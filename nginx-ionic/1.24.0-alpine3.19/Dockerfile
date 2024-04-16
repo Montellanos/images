@@ -11,14 +11,12 @@ ENV HEADERS_MORE_NGINX_MODULE_VERSION=0.37
 
 RUN apk update && apk add --no-cache \
   wget=1.21.4-r0 \
-  make=4.4.1-r2 \
-  gcc=13.2.1_git20231014-r0 \
-  g++=13.2.1_git20231014-r0 \
+  build-base=0.5-r3 \
   openssl-dev=3.1.4-r6 \
   pcre-dev=8.45-r3 \
   zlib-dev=1.3.1-r0
 
-RUN wget --no-verbose http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz \
+RUN wget --no-verbose https://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz \
   && tar -xzvf nginx-${NGINX_VERSION}.tar.gz \
   && wget --no-verbose https://github.com/openresty/headers-more-nginx-module/archive/v${HEADERS_MORE_NGINX_MODULE_VERSION}.tar.gz \
   && tar -xzvf v${HEADERS_MORE_NGINX_MODULE_VERSION}.tar.gz \
@@ -31,3 +29,5 @@ RUN wget --no-verbose http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz \
   && rm -rf nginx-${NGINX_VERSION}.tar.gz nginx-${NGINX_VERSION} v${HEADERS_MORE_NGINX_MODULE_VERSION}.tar.gz headers-more-nginx-module-${HEADERS_MORE_NGINX_MODULE_VERSION}
 
 RUN ln -s /usr/local/nginx/sbin/nginx /usr/local/bin/nginx
+
+RUN mkdir -p /var/log/nginx
