@@ -29,5 +29,3 @@ RUN wget --no-verbose https://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz \
   && rm -rf nginx-${NGINX_VERSION}.tar.gz nginx-${NGINX_VERSION} v${HEADERS_MORE_NGINX_MODULE_VERSION}.tar.gz headers-more-nginx-module-${HEADERS_MORE_NGINX_MODULE_VERSION}
 
 RUN ln -s /usr/local/nginx/sbin/nginx /usr/local/bin/nginx
-
-RUN mkdir -p /var/log/nginx

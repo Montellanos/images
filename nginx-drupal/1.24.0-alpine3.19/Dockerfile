@@ -5,7 +5,7 @@ LABEL description="Alpine based image to create containers based on nginx and dr
 LABEL version="1.24.0-alpine3.19"
 LABEL license="Apache License 2.0"
 
-ENV NGINX_VERSION=1.24.0-r15
+ENV NGINX_VERSION=1.24.0-r16
 ENV PHP_VERSION=8.2.18-r0
 ENV COMPOSER_VERSION=2.7.2
 
@@ -42,7 +42,8 @@ RUN apk update && apk add --no-cache \
   php82-phar=${PHP_VERSION} \
   php82-pear=${PHP_VERSION} \
   php82-pecl-xdebug=3.3.2-r0 \
-  php82-zip=${PHP_VERSION}
+  php82-zip=${PHP_VERSION} \
+  php82-mysqli=${PHP_VERSION}
 
 RUN ln -s /usr/sbin/php-fpm82 /usr/sbin/php-fpm
 
