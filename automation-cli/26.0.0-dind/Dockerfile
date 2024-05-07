@@ -8,7 +8,7 @@ LABEL license="Apache License 2.0"
 ENV TRIVY_VERSION=0.50.1
 ENV ARGOCD_VERSION=v2.10.6
 
-RUN apk add --no-cache \
+RUN apk update && apk add --no-cache \
   openssl=3.1.4-r6 \
   busybox=1.36.1-r15 \
   openssh-client-common=9.6_p1-r0 \
