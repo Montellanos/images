@@ -1,6 +1,6 @@
 # nginx-drupal
-Amazonlinux 2023 based image to create containers based on nginx and drupal
 
+Amazonlinux 2023 based image to create containers based on nginx and drupal
 
 docker build . -t unreleaseduser/nginx-drupal:1.25.2-amazonlinux2023 
 

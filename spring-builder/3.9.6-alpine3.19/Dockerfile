@@ -7,6 +7,8 @@ LABEL license="Apache License 2.0"
 
 RUN apk update && apk add --no-cache \
   git=2.43.0-r0 \
-  xmlstarlet=1.6.1-r2
+  xmlstarlet=1.6.1-r2 \
+  libcrypto3=3.1.4-r6 \
+  libssl3=3.1.4-r6 
 
 

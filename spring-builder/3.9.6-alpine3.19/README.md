@@ -1,4 +1,4 @@
-# ionic-web-builder
+# spring-builder
 
 Alpine based image to compile spring based proyects
 

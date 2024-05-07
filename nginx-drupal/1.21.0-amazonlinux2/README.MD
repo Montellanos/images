@@ -1,6 +1,6 @@
 # nginx-drupal
-Amazonlinux 2 based image to create containers based on nginx and drupal
 
+Amazonlinux 2 based image to create containers based on nginx and drupal
 
 docker build . -t unreleaseduser/nginx-drupal:1.21.0-amazonlinux2 
 

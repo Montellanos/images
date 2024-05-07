@@ -1,6 +1,6 @@
 # nginx-ionic
-Alpine based image to create containers based on nginx and ionic
 
+Alpine based image to create containers based on nginx and ionic
 
 docker build . -t unreleaseduser/nginx-ionic:1.24.0-alpine3.19 
 

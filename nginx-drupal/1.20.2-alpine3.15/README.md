@@ -1,6 +1,6 @@
 # nginx-drupal
-Alpine based image to create containers based on nginx and drupal
 
+Alpine based image to create containers based on nginx and drupal
 
 docker build . -t unreleaseduser/nginx-drupal:1.20.2-alpine3.15 
 
