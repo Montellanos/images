@@ -6,13 +6,13 @@ LABEL version="1.24.0-alpine3.19"
 LABEL license="Apache License 2.0"
 
 ENV NGINX_VERSION=1.24.0-r16
-ENV PHP_VERSION=8.2.18-r0
+ENV PHP_VERSION=8.2.19-r0
 ENV COMPOSER_VERSION=2.7.2
 
 RUN apk update && apk add --no-cache \
   nginx=${NGINX_VERSION} \
   nginx-mod-http-headers-more=${NGINX_VERSION} \
-  git=2.43.0-r0 \
+  git=2.43.4-r0 \
   unzip=6.0-r14 \
   jq=1.7.1-r0 \
   libcrypto3=3.1.4-r6 \
