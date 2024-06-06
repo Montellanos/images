@@ -7,13 +7,14 @@ LABEL license="Apache License 2.0"
 
 ENV NGINX_VERSION=1.25.2
 ENV HEADERS_MORE_NGINX_MODULE_VERSION=0.34
-ENV PHP_VERSION=8.2.15-1.amzn2023.0.1
-ENV COMPOSER_VERSION=2.7.0
-ENV XDEBUG_VERSION=3.2.2
+ENV PHP_VERSION=8.2.18-1.amzn2023.0.1
+ENV COMPOSER_VERSION=2.7.6
+ENV XDEBUG_VERSION=3.3.2
 
 RUN yum update -y -q \
   && yum install -y -q \
-  git-2.40.1-1.amzn2023.0.1 \
+  curl-minimal-8.5.0-1.amzn2023.0.4 \
+  git-2.40.1-1.amzn2023.0.3 \
   unzip-6.0-57.amzn2023.0.2 \
   tar-1.34-1.amzn2023.0.4 \
   make-4.3-5.amzn2023.0.2 \
@@ -22,8 +23,8 @@ RUN yum update -y -q \
   zlib-devel-1.2.11-33.amzn2023.0.5 \
   gcc-11.4.1-2.amzn2023.0.2 \
   autoconf-2.69-36.amzn2023.0.3 \
-  openssl-3.0.8-1.amzn2023.0.11.x86_64 \
-  openssl-devel-3.0.8-1.amzn2023.0.11.x86_64
+  openssl-3.0.8-1.amzn2023.0.11 \
+  openssl-devel-3.0.8-1.amzn2023.0.11
 
 RUN curl -sLO https://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz \
   && tar -xzvf nginx-${NGINX_VERSION}.tar.gz \
