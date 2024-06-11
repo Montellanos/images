@@ -1,4 +1,4 @@
-FROM docker:24.0.4-dind
+FROM --platform=linux/amd64 docker:24.0.4-dind-alpine3.18
 
 LABEL maintainer="Jorge Montellanos Díaz"
 LABEL description="This image contains minor automation tools for Gitlab CI"
