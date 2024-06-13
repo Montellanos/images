@@ -1,4 +1,4 @@
-FROM maven:3.9.6-eclipse-temurin-22-alpine
+FROM --platform=linux/amd64 maven:3.9.6-eclipse-temurin-22-alpine
 
 LABEL maintainer="Jorge Montellanos Díaz"
 LABEL description="Alpine based image to compile spring based proyects"
@@ -10,4 +10,4 @@ RUN apk update && apk add --no-cache \
   xmlstarlet=1.6.1-r2 \
   libcrypto3=3.1.5-r0 \
   libssl3=3.1.5-r0 \
-  busybox=1.36.1-r18
+  busybox=1.36.1-r19

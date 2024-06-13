@@ -1,4 +1,4 @@
-FROM alpine:3.19.1
+FROM --platform=linux/amd64 alpine:3.19.1
 
 LABEL maintainer="Jorge Montellanos Díaz"
 LABEL description="Alpine based image to create containers based on nginx and ionic"
@@ -15,7 +15,7 @@ RUN apk update && apk add --no-cache \
   openssl-dev=3.1.5-r0 \
   pcre-dev=8.45-r3 \
   zlib-dev=1.3.1-r0 \
-  busybox=1.36.1-r18
+  busybox=1.36.1-r19
 
 RUN wget --no-verbose https://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz \
   && tar -xzvf nginx-${NGINX_VERSION}.tar.gz \
