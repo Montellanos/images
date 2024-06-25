@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 alpine:3.20.0
+FROM --platform=linux/amd64 alpine:3.20.1
 
 LABEL maintainer="Jorge Montellanos Díaz"
 LABEL description="Alpine based image to create containers based on nginx and drupal"
