@@ -55,8 +55,23 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
   && php -r "unlink('composer-setup.php');"
 
 RUN sed -i \
-  -e 's|^;clear_env = no|clear_env = no|' \
+  -e 's|^user =.*|user = nginx|' \
+  -e 's|^group =.*|group = nginx|' \
   -e 's|^listen =.*|listen = 127.0.0.1:9000|' \
+  -e 's|^;listen.owner =.*|listen.owner = nginx|' \
+  -e 's|^;listen.group =.*|listen.group = nginx|' \
+  -e 's|^pm =.*|pm = ondemand|' \
+  -e 's|^pm.max_children =.*|pm.max_children = 150|' \
+  -e 's|^;pm.process_idle_timeout =.*|pm.process_idle_timeout = 10s|' \
+  -e 's|^;pm.max_requests =.*|pm.max_requests = 500|' \
+  -e 's|^;access.log =.*|access.log = /var/log/php83/php83.access.log|' \
+  -e 's|^;slowlog =.*|slowlog = /var/log/php83/php83-$pool.slow.log|' \
+  -e 's|^;request_slowlog_timeout =.*|request_slowlog_timeout = 60s|' \
+  -e 's|^;request_terminate_timeout =.*|request_terminate_timeout = 90s|' \
+  -e 's|^;catch_workers_output =.*|catch_workers_output = yes|' \
+  -e 's|^;clear_env =.*|clear_env = no|' \
+  -e 's|^;php_admin_value\[memory_limit\] =.*|php_admin_value[memory_limit] = 512M|' \
+  -e 's|^;php_admin_value\[error_log\] =.*|php_admin_value[error_log] = /var/log/php83/php83-error.log|' \
   /etc/php83/php-fpm.d/www.conf
 
 RUN mkdir -p /var/run/php-fpm/
@@ -66,3 +81,9 @@ RUN mkdir -p /var/log/nginx
 COPY ./xdebug.ini /etc/php83/conf.d/docker-php-ext-xdebug.ini
 COPY ./default.conf /etc/nginx/http.d/default.conf
 COPY ./html /etc/nginx/html
+
+RUN cat /etc/php83/php-fpm.d/www.conf
+
+EXPOSE 80
+
+CMD nginx -g 'daemon off;' & php-fpm -F
