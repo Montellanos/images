@@ -9,4 +9,3 @@ docker tag unreleaseduser/nginx-drupal:1.24.0-alpine3.19 unreleaseduser/nginx-dr
 docker push unreleaseduser/nginx-drupal:1.24.0-alpine3.19
 
 docker run aquasec/trivy image unreleaseduser/nginx-drupal:1.24.0-alpine3.19 --timeout 20m
-

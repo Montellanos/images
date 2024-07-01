@@ -84,8 +84,6 @@ COPY ./xdebug.ini /etc/php82/conf.d/docker-php-ext-xdebug.ini
 COPY ./default.conf /etc/nginx/http.d/default.conf
 COPY ./html /etc/nginx/html
 
-RUN cat /etc/php82/php-fpm.d/www.conf
-
 EXPOSE 80
 
 CMD nginx -g 'daemon off;' & php-fpm -F
