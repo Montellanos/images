@@ -12,7 +12,9 @@ ENV HEADERS_MORE_NGINX_MODULE_VERSION=0.37
 RUN apk update && apk add --no-cache \
   wget=1.21.4-r0 \
   build-base=0.5-r3 \
-  openssl-dev=3.1.5-r0 \
+  libcrypto3=3.1.6-r0 \
+  libssl3=3.1.6-r0 \
+  openssl-dev=3.1.6-r0 \ 
   pcre-dev=8.45-r3 \
   zlib-dev=1.3.1-r0 \
   busybox=1.36.1-r19
@@ -30,3 +32,7 @@ RUN wget --no-verbose https://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz \
   && rm -rf nginx-${NGINX_VERSION}.tar.gz nginx-${NGINX_VERSION} v${HEADERS_MORE_NGINX_MODULE_VERSION}.tar.gz headers-more-nginx-module-${HEADERS_MORE_NGINX_MODULE_VERSION}
 
 RUN ln -s /usr/local/nginx/sbin/nginx /usr/local/bin/nginx
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

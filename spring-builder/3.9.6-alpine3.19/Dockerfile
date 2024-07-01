@@ -8,6 +8,6 @@ LABEL license="Apache License 2.0"
 RUN apk update && apk add --no-cache \
   git=2.43.4-r0 \
   xmlstarlet=1.6.1-r2 \
-  libcrypto3=3.1.5-r0 \
-  libssl3=3.1.5-r0 \
+  libcrypto3=3.1.6-r0 \
+  libssl3=3.1.6-r0 \
   busybox=1.36.1-r19

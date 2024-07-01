@@ -15,8 +15,8 @@ RUN apk update && apk add --no-cache \
   git=2.43.4-r0 \
   unzip=6.0-r14 \
   jq=1.7.1-r0 \
-  libcrypto3=3.1.5-r0 \
-  libssl3=3.1.5-r0 \
+  libcrypto3=3.1.6-r0 \
+  libssl3=3.1.6-r0 \
   busybox=1.36.1-r19 \
   php82=${PHP_VERSION} \
   php82-bcmath=${PHP_VERSION} \
@@ -68,3 +68,5 @@ RUN mkdir -p /var/log/nginx
 COPY ./xdebug.ini /etc/php82/conf.d/docker-php-ext-xdebug.ini
 COPY ./default.conf /etc/nginx/http.d/default.conf
 COPY ./html /etc/nginx/html
+
+RUN cat /etc/php82/php-fpm.d/www.conf

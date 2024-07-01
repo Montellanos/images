@@ -1,4 +1,4 @@
-FROM amazonlinux:2023
+FROM --platform=linux/amd64 amazonlinux:2023
 
 LABEL maintainer="Jorge Montellanos Díaz"
 LABEL description="Amazonlinux 2023 based image to create containers based on nginx and drupal"
@@ -85,3 +85,8 @@ COPY ./xdebug.ini /etc/php.d/50-xdebug.ini
 
 RUN  yum clean all -y \
   && rm -rf /var/cache/yum
+
+EXPOSE 80
+
+CMD nginx -g 'daemon off;' & php-fpm -F
+  

@@ -1,8 +1,5 @@
-FROM sonarsource/sonar-scanner-cli:4.8.0
+FROM --platform=linux/amd64 sonarsource/sonar-scanner-cli:4.8.0
 
 COPY . .
 
 RUN sonar-scanner
-
-
-
