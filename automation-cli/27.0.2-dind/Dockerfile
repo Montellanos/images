@@ -6,13 +6,13 @@ LABEL version="27.0.2-dind"
 LABEL license="Apache License 2.0"
 
 ENV TRIVY_VERSION=0.53.0
-ENV ARGOCD_VERSION=2.11.3
+ENV ARGOCD_VERSION=2.11.4
 
 RUN apk update && apk add --no-cache \
   openssl=3.3.1-r1 \
   busybox=1.36.1-r29 \
-  openssh-client-common=9.7_p1-r3 \
-  openssh=9.7_p1-r3 \
+  openssh-client-common=9.7_p1-r4 \
+  openssh=9.7_p1-r4 \
   wget=1.24.5-r0 \
   jq=1.7.1-r0 \
   git=2.45.2-r0 \
@@ -26,7 +26,7 @@ RUN wget --no-verbose https://github.com/aquasecurity/trivy/releases/download/v$
   && mkdir /usr/local/templates  \
   && mv contrib /usr/local/templates/ \
   && mv trivy /usr/local/bin/trivy \
-  && rm trivy.tar.gz
+  && rm -rf trivy.tar.gz
 
 RUN wget --no-verbose https://github.com/argoproj/argo-cd/releases/download/v${ARGOCD_VERSION}/argocd-linux-amd64 -O /usr/local/bin/argocd \ 
   && chmod +x /usr/local/bin/argocd
