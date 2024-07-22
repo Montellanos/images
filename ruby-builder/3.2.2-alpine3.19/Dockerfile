@@ -1,9 +1,13 @@
 FROM --platform=linux/amd64 ruby:3.2.2-alpine3.19
 
+WORKDIR /app
+
 LABEL maintainer="Jorge Montellanos Díaz"
 LABEL description="Alpine based image to build proyects with ruby"
 LABEL version="3.2.2-alpine3.19"
 LABEL license="Apache License 2.0"
+
+ENV BUNDLE_PATH="/gems"
 
 RUN apk update && apk add --no-cache \
   busybox=1.36.1-r19 \
@@ -13,6 +17,7 @@ RUN apk update && apk add --no-cache \
   build-base=0.5-r3 \
   tzdata=2024a-r0 \
   nodejs=20.12.1-r0 \
+  npm=10.2.5-r0 \
   yarn=1.22.19-r0 \
   git=2.43.4-r0 \
   musl=1.2.4_git20230717-r4 \
@@ -29,3 +34,12 @@ RUN apk update && apk add --no-cache \
   imagemagick=7.1.1.32-r0 \
   postgresql15-client=15.7-r0 \
   postgresql15-dev=15.7-r0
+
+COPY . .
+
+RUN bundle config set --local path "$BUNDLE_PATH" && \
+  bundle config set --local without 'development test' && \
+  bundle config set --local force_ruby_platform true && \
+  bundle install
+
+RUN rm -rf Gemfile Gemfile.lock

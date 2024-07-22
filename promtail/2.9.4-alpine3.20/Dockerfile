@@ -5,7 +5,7 @@ LABEL description="Alpine based image to create listener containers with promtai
 LABEL version="2.9.4-alpine3.20"
 LABEL license="Apache License 2.0"
 
-ENV PROMTAIL_VERSION=2.9.4-r6
+ENV PROMTAIL_VERSION=2.9.4-r7
 
 RUN apk update && apk add --no-cache \
   libcrypto3=3.3.1-r1 \

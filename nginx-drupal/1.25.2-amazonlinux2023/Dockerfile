@@ -15,6 +15,7 @@ RUN yum update -y -q \
   && yum install -y -q \
   curl-minimal-8.5.0-1.amzn2023.0.4 \
   git-2.40.1-1.amzn2023.0.3 \
+  jq-1.7.1-48.amzn2023.0.1 \
   unzip-6.0-57.amzn2023.0.2 \
   tar-1.34-1.amzn2023.0.4 \
   make-4.3-5.amzn2023.0.2 \
