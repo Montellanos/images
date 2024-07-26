@@ -1,4 +1,5 @@
-FROM --platform=linux/amd64 alpine:3.19.1
+ARG PLATFORM=linux/amd64
+FROM --platform=$PLATFORM alpine:3.19.1
 
 LABEL maintainer="Jorge Montellanos Díaz"
 LABEL description="Alpine based image to create containers based on nginx and drupal"
@@ -7,7 +8,7 @@ LABEL license="Apache License 2.0"
 
 ENV NGINX_VERSION=1.24.0-r16
 ENV PHP_VERSION=8.2.20-r0
-ENV COMPOSER_VERSION=2.7.6
+ENV COMPOSER_VERSION=2.7.7
 
 RUN apk update && apk add --no-cache \
   nginx=${NGINX_VERSION} \
@@ -87,4 +88,4 @@ COPY ./html /etc/nginx/html
 
 EXPOSE 80
 
-CMD nginx -g 'daemon off;' & php-fpm -F
+CMD ["sh", "-c", "nginx -g 'daemon off;' & php-fpm -F"]

@@ -1,4 +1,5 @@
-FROM --platform=linux/amd64 node:20.15.1-alpine3.20
+ARG PLATFORM=linux/amd64
+FROM --platform=$PLATFORM node:20.15.1-alpine3.20
 
 LABEL maintainer="Jorge Montellanos Díaz"
 LABEL description="Alpine based image to create containers based on node"

@@ -1,4 +1,5 @@
-FROM --platform=linux/amd64 alpine:3.20.1
+ARG PLATFORM=linux/amd64
+FROM --platform=$PLATFORM alpine:3.20.1
 
 LABEL maintainer="Jorge Montellanos Díaz"
 LABEL description="Alpine based image to create containers based on nginx and drupal"
@@ -87,4 +88,4 @@ COPY ./html /etc/nginx/html
 
 EXPOSE 80
 
-CMD nginx -g 'daemon off;' & php-fpm -F
+CMD ["sh", "-c", "nginx -g 'daemon off;' & php-fpm -F"]

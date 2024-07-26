@@ -1,4 +1,5 @@
-FROM --platform=linux/amd64 amazonlinux:2023
+ARG PLATFORM=linux/amd64
+FROM --platform=$PLATFORM amazonlinux:2023
 
 LABEL maintainer="Jorge Montellanos Díaz"
 LABEL description="Amazonlinux 2023 based image to create containers based on nginx and drupal"
@@ -8,7 +9,7 @@ LABEL license="Apache License 2.0"
 ENV NGINX_VERSION=1.25.2
 ENV HEADERS_MORE_NGINX_MODULE_VERSION=0.34
 ENV PHP_VERSION=8.2.18-1.amzn2023.0.1
-ENV COMPOSER_VERSION=2.7.6
+ENV COMPOSER_VERSION=2.7.7
 ENV XDEBUG_VERSION=3.3.2
 
 RUN yum update -y -q \
@@ -89,5 +90,4 @@ RUN  yum clean all -y \
 
 EXPOSE 80
 
-CMD nginx -g 'daemon off;' & php-fpm -F
-  
+CMD ["sh", "-c", "nginx -g 'daemon off;' & php-fpm -F"]

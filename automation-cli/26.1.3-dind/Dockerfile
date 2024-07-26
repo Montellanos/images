@@ -1,4 +1,5 @@
-FROM --platform=linux/amd64 docker:26.1.3-dind-alpine3.19
+ARG PLATFORM=linux/amd64
+FROM --platform=$PLATFORM docker:26.1.3-dind-alpine3.19
 
 LABEL maintainer="Jorge Montellanos Díaz"
 LABEL description="This image contains minor automation tools for Gitlab CI"
@@ -6,10 +7,10 @@ LABEL version="26.1.3-dind"
 LABEL license="Apache License 2.0"
 
 ENV TRIVY_VERSION=0.53.0
-ENV ARGOCD_VERSION=2.11.4
+ENV ARGOCD_VERSION=2.11.7
 
 RUN apk update && apk add --no-cache \
-  openssl=3.1.6-r0 \
+  openssl=3.1.6-r2 \
   busybox=1.36.1-r19 \
   openssh-client-common=9.6_p1-r1 \
   openssh=9.6_p1-r1 \
@@ -19,7 +20,7 @@ RUN apk update && apk add --no-cache \
   xmlstarlet=1.6.1-r2 \
   speedtest-cli=2.1.3-r6 \
   aws-cli=2.15.14-r0 \
-  curl=8.5.0-r0
+  curl=8.9.0-r0 
 
 RUN wget --no-verbose https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz -O trivy.tar.gz \
   && tar -xvf trivy.tar.gz \

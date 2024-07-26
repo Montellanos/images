@@ -1,4 +1,5 @@
-FROM --platform=linux/amd64 alpine:3.19.1
+ARG PLATFORM=linux/amd64
+FROM --platform=$PLATFORM alpine:3.19.1
 
 LABEL maintainer="Jorge Montellanos Díaz"
 LABEL description="Alpine based image to create containers based on nginx and ionic"
@@ -12,9 +13,9 @@ ENV HEADERS_MORE_NGINX_MODULE_VERSION=0.37
 RUN apk update && apk add --no-cache \
   wget=1.21.4-r0 \
   build-base=0.5-r3 \
-  libcrypto3=3.1.6-r0 \
-  libssl3=3.1.6-r0 \
-  openssl-dev=3.1.6-r0 \ 
+  libcrypto3=3.1.6-r2 \
+  libssl3=3.1.6-r2 \
+  openssl-dev=3.1.6-r2 \ 
   pcre-dev=8.45-r3 \
   zlib-dev=1.3.1-r0 \
   busybox=1.36.1-r19
