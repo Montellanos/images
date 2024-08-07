@@ -7,7 +7,7 @@ LABEL version="24.0.4-dind"
 LABEL license="Apache License 2.0"
 
 ENV TRIVY_VERSION=0.47.0
-ENV ARGOCD_VERSION=2.11.7
+ENV ARGOCD_VERSION=2.12.0
 
 RUN apk update && apk add --no-cache \
   libcrypto3=3.1.6-r0 \
