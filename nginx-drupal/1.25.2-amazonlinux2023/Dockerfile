@@ -58,6 +58,7 @@ RUN yum install -y -q \
 
 RUN sed -i \
   -e 's|^memory_limit = 128M|memory_limit = 512M|' \
+  -e 's|^;max_input_vars =.*|max_input_vars = 10000|' \
   /etc/php.ini
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \

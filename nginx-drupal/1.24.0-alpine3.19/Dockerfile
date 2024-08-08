@@ -52,6 +52,7 @@ RUN ln -s /usr/sbin/php-fpm82 /usr/sbin/php-fpm
 
 RUN sed -i \
   -e 's|^memory_limit =.*|memory_limit = 512M|' \
+  -e 's|^;max_input_vars =.*|max_input_vars = 10000|' \
   /etc/php82/php.ini
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
