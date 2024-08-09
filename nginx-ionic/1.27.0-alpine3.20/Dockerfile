@@ -34,6 +34,8 @@ RUN wget --no-verbose https://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz \
 
 RUN ln -s /usr/local/nginx/sbin/nginx /usr/local/bin/nginx
 
+COPY ./default.conf /usr/local/nginx/conf/nginx.conf
+
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]

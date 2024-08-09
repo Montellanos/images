@@ -85,6 +85,7 @@ RUN curl -sLO https://xdebug.org/files/xdebug-${XDEBUG_VERSION}.tgz \
   && rm -rf xdebug-${XDEBUG_VERSION}.tgz xdebug-${XDEBUG_VERSION}
 
 COPY ./xdebug.ini /etc/php.d/50-xdebug.ini
+COPY ./default.conf /usr/local/nginx/conf/nginx.conf
 
 RUN  yum clean all -y \
   && rm -rf /var/cache/yum
