@@ -7,7 +7,7 @@ LABEL version="27.0.2-dind"
 LABEL license="Apache License 2.0"
 
 ENV TRIVY_VERSION=0.54.1
-ENV ARGOCD_VERSION=2.12.0
+ENV ARGOCD_VERSION=2.12.1
 
 RUN apk update && apk add --no-cache \
   openssl=3.3.1-r3 \
