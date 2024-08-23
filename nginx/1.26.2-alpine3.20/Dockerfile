@@ -1,12 +1,12 @@
 ARG PLATFORM=linux/amd64
-FROM --platform=$PLATFORM alpine:3.20.1
+FROM --platform=$PLATFORM alpine:3.20.2
 
 LABEL maintainer="Jorge Montellanos Díaz"
 LABEL description="Alpine based image to create containers based on nginx"
-LABEL version="1.26.1-alpine3.20"
+LABEL version="1.26.2-alpine3.20"
 LABEL license="Apache License 2.0"
 
-ENV NGINX_VERSION=1.26.1-r0
+ENV NGINX_VERSION=1.26.2-r0
 
 RUN apk update && apk add --no-cache \
   nginx=${NGINX_VERSION} \

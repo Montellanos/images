@@ -1,5 +1,5 @@
 ARG PLATFORM=linux/amd64
-FROM --platform=$PLATFORM alpine:3.20.1
+FROM --platform=$PLATFORM alpine:3.20.2
 
 LABEL maintainer="Jorge Montellanos Díaz"
 LABEL description="Alpine based image to create listener containers with promtail"
