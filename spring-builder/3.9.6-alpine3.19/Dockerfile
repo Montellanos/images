@@ -9,8 +9,9 @@ LABEL license="Apache License 2.0"
 RUN apk update && apk add --no-cache \
   git=2.43.4-r0 \
   xmlstarlet=1.6.1-r2 \
-  libcrypto3=3.1.6-r2 \
-  libssl3=3.1.6-r2 \
+  libcrypto3=3.1.7-r0 \
+  libssl3=3.1.7-r0 \
   busybox=1.36.1-r19 \
-  curl=8.9.0-r0 \
-  libcurl=8.9.0-r0
+  curl=8.9.1-r0 \
+  libcurl=8.9.1-r0 \
+  libexpat=2.6.3-r0

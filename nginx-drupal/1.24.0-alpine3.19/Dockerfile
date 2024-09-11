@@ -8,7 +8,7 @@ LABEL license="Apache License 2.0"
 
 ENV NGINX_VERSION=1.24.0-r16
 ENV PHP_VERSION=8.2.20-r0
-ENV COMPOSER_VERSION=2.7.8
+ENV COMPOSER_VERSION=2.7.9
 
 RUN apk update && apk add --no-cache \
   nginx=${NGINX_VERSION} \
@@ -18,7 +18,7 @@ RUN apk update && apk add --no-cache \
   jq=1.7.1-r0 \
   libcrypto3=3.1.7-r0 \
   libssl3=3.1.7-r0 \
-  libcurl=8.9.0-r0 \
+  libcurl=8.9.1-r0 \
   busybox=1.36.1-r19 \
   php82=${PHP_VERSION} \
   php82-bcmath=${PHP_VERSION} \
