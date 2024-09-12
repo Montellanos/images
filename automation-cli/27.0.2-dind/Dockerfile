@@ -20,8 +20,9 @@ RUN apk update && apk add --no-cache \
   xmlstarlet=1.6.1-r2 \
   speedtest-cli=2.1.3-r7 \
   aws-cli=2.15.57-r0 \
-  curl=8.9.1-r1 \
-  libexpat=2.6.3-r0
+  curl=8.10.0-r0 \
+  libexpat=2.6.3-r0 \
+  libcurl=8.10.0-r0
 
 RUN wget --no-verbose https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz -O trivy.tar.gz \
   && tar -xvf trivy.tar.gz \
