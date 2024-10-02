@@ -1,4 +1,5 @@
-FROM --platform=linux/amd64 mysql:8.0.33
+ARG PLATFORM=linux/amd64
+FROM --platform=$PLATFORM mysql:8.0.33
 
 ENV MYSQL_ROOT_PASSWORD=drupal_password_user_root
 ENV MYSQL_DATABASE=drupal_database_name
