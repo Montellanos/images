@@ -1,5 +1,5 @@
 ARG PLATFORM=linux/amd64
-FROM --platform=$PLATFORM alpine:3.20.2
+FROM --platform=$PLATFORM alpine:3.20.3
 
 LABEL maintainer="Jorge Montellanos Díaz"
 LABEL description="Alpine based image to create containers based on nginx and drupal"
@@ -8,7 +8,7 @@ LABEL license="Apache License 2.0"
 
 ENV NGINX_VERSION=1.26.2-r0
 ENV PHP_VERSION=8.3.12-r0
-ENV COMPOSER_VERSION=2.7.9
+ENV COMPOSER_VERSION=2.8.1
 
 RUN apk update && apk add --no-cache \
   nginx=${NGINX_VERSION} \
@@ -30,7 +30,7 @@ RUN apk update && apk add --no-cache \
   php83-opcache=${PHP_VERSION} \
   php83-pdo=${PHP_VERSION} \
   php83-pecl-igbinary=3.2.15-r0 \
-  php83-pecl-redis=6.0.2-r0 \
+  php83-pecl-redis=6.1.0-r0 \
   php83-soap=${PHP_VERSION} \
   php83-xml=${PHP_VERSION} \
   php83-simplexml=${PHP_VERSION} \
