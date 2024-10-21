@@ -8,5 +8,5 @@ docker tag unreleaseduser/nginx-ionic:1.24.0-alpine3.19 unreleaseduser/nginx-ion
 
 docker push unreleaseduser/nginx-ionic:1.24.0-alpine3.19
 
-docker run aquasec/trivy image unreleaseduser/nginx-ionic:1.24.0-alpine3.19 --timeout 20m
+docker run aquasec/trivy image unreleaseduser/nginx-ionic:1.24.0-alpine3.19 --timeout 20m --db-repository public.ecr.aws/aquasecurity/trivy-db --java-db-repository public.ecr.aws/aquasecurity/trivy-java-db
 

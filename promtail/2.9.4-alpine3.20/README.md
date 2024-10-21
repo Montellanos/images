@@ -8,5 +8,5 @@ docker tag unreleaseduser/promtail:2.9.4-alpine3.20 unreleaseduser/promtail:2.9.
 
 docker push unreleaseduser/promtail:2.9.4-alpine3.20
 
-docker run aquasec/trivy image unreleaseduser/promtail:2.9.4-alpine3.20 --timeout 20m
+docker run aquasec/trivy image unreleaseduser/promtail:2.9.4-alpine3.20 --timeout 20m --db-repository public.ecr.aws/aquasecurity/trivy-db --java-db-repository public.ecr.aws/aquasecurity/trivy-java-db
 

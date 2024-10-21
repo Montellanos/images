@@ -8,5 +8,5 @@ docker tag unreleaseduser/spring-web:22.0.1-alpine3.19 unreleaseduser/spring-web
 
 docker push unreleaseduser/spring-web:22.0.1-alpine3.19
 
-docker run aquasec/trivy image unreleaseduser/spring-web:22.0.1-alpine3.19 --timeout 20m
+docker run aquasec/trivy image unreleaseduser/spring-web:22.0.1-alpine3.19 --timeout 20m --db-repository public.ecr.aws/aquasecurity/trivy-db --java-db-repository public.ecr.aws/aquasecurity/trivy-java-db
 

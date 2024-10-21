@@ -8,4 +8,4 @@ docker tag unreleaseduser/node:20.15.1-alpine3.20 unreleaseduser/node:20.15.1-al
 
 docker push unreleaseduser/node:20.15.1-alpine3.20
 
-docker run aquasec/trivy image unreleaseduser/node:20.15.1-alpine3.20 --timeout 20m
+docker run aquasec/trivy image unreleaseduser/node:20.15.1-alpine3.20 --timeout 20m --db-repository public.ecr.aws/aquasecurity/trivy-db --java-db-repository public.ecr.aws/aquasecurity/trivy-java-db

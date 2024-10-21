@@ -8,4 +8,4 @@ docker tag unreleaseduser/automation-cli:27.0.2-dind unreleaseduser/automation-c
 
 docker push unreleaseduser/automation-cli:27.0.2-dind
 
-docker run aquasec/trivy image unreleaseduser/automation-cli:27.0.2-dind --timeout 20m
+docker run aquasec/trivy image unreleaseduser/automation-cli:27.0.2-dind --timeout 20m --db-repository public.ecr.aws/aquasecurity/trivy-db --java-db-repository public.ecr.aws/aquasecurity/trivy-java-db

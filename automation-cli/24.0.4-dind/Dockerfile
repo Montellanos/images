@@ -7,13 +7,13 @@ LABEL version="24.0.4-dind"
 LABEL license="Apache License 2.0"
 
 ENV TRIVY_VERSION=0.56.2
-ENV ARGOCD_VERSION=2.12.4
+ENV ARGOCD_VERSION=2.12.6
 
 RUN apk update && apk add --no-cache \
-  libcrypto3=3.1.7-r0 \
-  libssl3=3.1.7-r0 \
+  libcrypto3=3.1.7-r1 \
+  libssl3=3.1.7-r1 \
   ssl_client=1.36.1-r7 \
-  openssl=3.1.7-r0 \
+  openssl=3.1.7-r1 \
   busybox=1.36.1-r7 \
   krb5-libs=1.20.2-r0 \
   openssh-client-common=9.3_p2-r2 \

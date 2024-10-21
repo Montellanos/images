@@ -8,4 +8,4 @@ docker tag unreleaseduser/nginx-drupal:1.25.2-amazonlinux2023  unreleaseduser/ng
 
 docker push unreleaseduser/nginx-drupal:1.25.2-amazonlinux2023 
 
-docker run aquasec/trivy image unreleaseduser/nginx-drupal:1.25.2-amazonlinux2023 --timeout 20m
+docker run aquasec/trivy image unreleaseduser/nginx-drupal:1.25.2-amazonlinux2023 --timeout 20m --db-repository public.ecr.aws/aquasecurity/trivy-db --java-db-repository public.ecr.aws/aquasecurity/trivy-java-db
