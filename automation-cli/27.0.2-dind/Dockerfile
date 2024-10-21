@@ -22,7 +22,9 @@ RUN apk update && apk add --no-cache \
   aws-cli=2.15.57-r0 \
   curl=8.10.1-r0 \
   libexpat=2.6.3-r0 \
-  libcurl=8.10.1-r0
+  libcurl=8.10.1-r0 \
+  tzdata=2024b-r0 \
+  coreutils=9.5-r1
 
 RUN wget --no-verbose https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz -O trivy.tar.gz \
   && tar -xvf trivy.tar.gz \
