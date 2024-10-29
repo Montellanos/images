@@ -25,8 +25,8 @@ RUN yum update -y -q \
   zlib-devel-1.2.11-33.amzn2023.0.5 \
   gcc-11.4.1-2.amzn2023.0.2 \
   autoconf-2.69-36.amzn2023.0.3 \
-  openssl-3.0.8-1.amzn2023.0.14 \
-  openssl-devel-3.0.8-1.amzn2023.0.14
+  openssl-3.0.8-1.amzn2023.0.16 \
+  openssl-devel-3.0.8-1.amzn2023.0.16
 
 RUN curl -sLO https://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz \
   && tar -xzvf nginx-${NGINX_VERSION}.tar.gz \
