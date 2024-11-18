@@ -11,5 +11,6 @@ RUN apk update && apk add --no-cache \
   git=2.45.2-r0 \
   libcrypto3=3.3.2-r1 \
   libssl3=3.3.2-r1 \
-  libcurl=8.10.1-r0
+  libcurl=8.11.0-r2 \
+  cross-spawn=7.0.5
   

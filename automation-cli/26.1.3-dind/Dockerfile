@@ -6,8 +6,8 @@ LABEL description="This image contains minor automation tools for Gitlab CI"
 LABEL version="26.1.3-dind"
 LABEL license="Apache License 2.0"
 
-ENV TRIVY_VERSION=0.56.2
-ENV ARGOCD_VERSION=2.12.6
+ENV TRIVY_VERSION=0.57.0
+ENV ARGOCD_VERSION=2.12.7
 
 RUN apk update && apk add --no-cache \
   openssl=3.1.7-r1 \
@@ -21,7 +21,7 @@ RUN apk update && apk add --no-cache \
   speedtest-cli=2.1.3-r6 \
   aws-cli=2.15.14-r0 \
   curl=8.9.1-r1 \
-  libexpat=2.6.3-r0 \
+  libexpat=2.6.4-r0 \
   tzdata=2024a-r0 \
   coreutils=9.4-r2
 

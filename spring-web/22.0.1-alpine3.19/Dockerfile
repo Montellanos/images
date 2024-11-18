@@ -10,4 +10,4 @@ RUN apk update && apk add --no-cache \
   libcrypto3=3.1.7-r1 \
   libssl3=3.1.7-r1 \
   busybox=1.36.1-r19 \
-  libexpat=2.6.3-r0
+  libexpat=2.6.4-r0
