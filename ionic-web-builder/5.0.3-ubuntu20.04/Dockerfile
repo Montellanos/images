@@ -26,4 +26,4 @@ RUN curl -fsSL https://deb.nodesource.com/setup_14.x | grep -v 'sleep' | bash -
 RUN apt-get install -y nodejs=14.21.3-deb-1nodesource1
 
 RUN npm i -g ionic@5.0.3
-RUN npm i -g cordova@12.0.0
+RUN npm i -g cordova@11.0.0
