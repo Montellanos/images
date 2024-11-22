@@ -11,7 +11,7 @@ RUN apk update && apk add --no-cache \
   npm=7.17.0-r0 \
   git=2.32.7-r0
 
-RUN npm install -g npm@6.14.8
+RUN npm install -g npm@6.14.18
 
 RUN npm cache clean --force
 
