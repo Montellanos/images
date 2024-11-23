@@ -15,5 +15,5 @@ RUN npm install -g npm@6.14.18
 
 RUN npm cache clean --force
 
-RUN npm i -g ionic@5.0.3
-RUN npm i -g cordova@11.0.0
+RUN npm install -g ionic@5.0.3
+RUN npm install -g cordova@11.0.0
