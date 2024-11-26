@@ -7,7 +7,7 @@ LABEL version="1.24.0-alpine3.19"
 LABEL license="Apache License 2.0"
 
 ENV NGINX_VERSION=1.24.0-r16
-ENV PHP_VERSION=8.2.20-r0
+ENV PHP_VERSION=8.2.26-r0
 ENV COMPOSER_VERSION=2.8.3
 
 RUN apk update && apk add --no-cache \
