@@ -1,9 +1,9 @@
 ARG PLATFORM=linux/amd64
-FROM --platform=$PLATFORM node:20.15.1-alpine3.20
+FROM --platform=$PLATFORM node:22.11.0-alpine3.20
 
 LABEL maintainer="Jorge Montellanos Díaz"
 LABEL description="Alpine based image to create containers based on node"
-LABEL version="20.15.1-alpine3.20"
+LABEL version="22.11.0-alpine3.20"
 LABEL license="Apache License 2.0"
 
 RUN apk update && apk add --no-cache \
@@ -12,4 +12,3 @@ RUN apk update && apk add --no-cache \
   libcrypto3=3.3.2-r1 \
   libssl3=3.3.2-r1 \
   libcurl=8.11.0-r2
-  

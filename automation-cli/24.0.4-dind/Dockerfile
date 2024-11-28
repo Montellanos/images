@@ -6,8 +6,8 @@ LABEL description="This image contains minor automation tools for Gitlab CI"
 LABEL version="24.0.4-dind"
 LABEL license="Apache License 2.0"
 
-ENV TRIVY_VERSION=0.57.0
-ENV ARGOCD_VERSION=2.12.7
+ENV TRIVY_VERSION=0.57.1
+ENV ARGOCD_VERSION=2.13.1
 
 RUN apk update && apk add --no-cache \
   libcrypto3=3.1.7-r1 \
