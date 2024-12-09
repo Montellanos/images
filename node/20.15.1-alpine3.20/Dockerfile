@@ -12,4 +12,3 @@ RUN apk update && apk add --no-cache \
   libcrypto3=3.3.2-r1 \
   libssl3=3.3.2-r1 \
   libcurl=8.11.0-r2
-  
