@@ -18,7 +18,7 @@ RUN apk update && apk add --no-cache \
   jq=1.7.1-r0 \
   libcrypto3=3.1.7-r1 \
   libssl3=3.1.7-r1 \
-  libcurl=8.9.1-r1 \
+  libcurl=8.11.1-r0 \
   busybox=1.36.1-r19 \
   php82=${PHP_VERSION} \
   php82-bcmath=${PHP_VERSION} \
