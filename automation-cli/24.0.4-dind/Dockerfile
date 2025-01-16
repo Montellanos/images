@@ -24,7 +24,7 @@ RUN apk update && apk add --no-cache \
   xmlstarlet=1.6.1-r2 \
   speedtest-cli=2.1.3-r5 \
   aws-cli=2.15.14-r0 \
-  curl=8.9.1-r1 \
+  curl=8.11.1-r0 \
   tzdata=2024b-r0 \
   coreutils=9.3-r2
 

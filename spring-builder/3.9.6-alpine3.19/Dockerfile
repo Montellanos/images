@@ -12,6 +12,6 @@ RUN apk update && apk add --no-cache \
   libcrypto3=3.1.7-r1 \
   libssl3=3.1.7-r1 \
   busybox=1.36.1-r19 \
-  curl=8.9.1-r1 \
-  libcurl=8.9.1-r1 \
+  curl=8.11.1-r0 \
+  libcurl=8.11.1-r0 \
   libexpat=2.6.4-r0

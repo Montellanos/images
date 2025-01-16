@@ -13,7 +13,7 @@ ENV COMPOSER_VERSION=2.8.4
 RUN apk update && apk add --no-cache \
   nginx=${NGINX_VERSION} \
   nginx-mod-http-headers-more=${NGINX_VERSION} \
-  git=2.43.5-r0 \
+  git=2.43.6-r0 \
   unzip=6.0-r14 \
   jq=1.7.1-r0 \
   libcrypto3=3.1.7-r1 \
