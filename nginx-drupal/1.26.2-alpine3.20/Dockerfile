@@ -1,5 +1,5 @@
 ARG PLATFORM=linux/amd64
-FROM --platform=$PLATFORM alpine:3.20.3
+FROM --platform=$PLATFORM alpine:3.20.5
 
 LABEL maintainer="Jorge Montellanos Díaz"
 LABEL description="Alpine based image to create containers based on nginx and drupal"
@@ -13,7 +13,7 @@ ENV COMPOSER_VERSION=2.8.4
 RUN apk update && apk add --no-cache \
   nginx=${NGINX_VERSION} \
   nginx-mod-http-headers-more=${NGINX_VERSION} \
-  git=2.45.2-r0 \
+  git=2.45.3-r0 \
   unzip=6.0-r14 \
   jq=1.7.1-r0 \
   libcrypto3=3.3.2-r1 \

@@ -1,5 +1,5 @@
 ARG PLATFORM=linux/amd64
-FROM --platform=$PLATFORM alpine:3.19.4
+FROM --platform=$PLATFORM alpine:3.19.6
 
 LABEL maintainer="Jorge Montellanos Díaz"
 LABEL description="Alpine based image to create containers based on nginx and ionic"
