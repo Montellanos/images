@@ -8,7 +8,7 @@ LABEL license="Apache License 2.0"
 
 ENV NGINX_VERSION=1.26.2-r4
 ENV PHP_VERSION=8.4.3-r0
-ENV COMPOSER_VERSION=2.8.4
+ENV COMPOSER_VERSION=2.8.5
 
 RUN apk update && apk add --no-cache \
   nginx=${NGINX_VERSION} \
