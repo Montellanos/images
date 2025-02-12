@@ -59,6 +59,7 @@ RUN yum install -y -q \
 RUN sed -i \
   -e 's|^memory_limit = 128M|memory_limit = 512M|' \
   -e 's|^;max_input_vars =.*|max_input_vars = 10000|' \
+  -e 's|^;error_log = syslog|error_log = /dev/stderr|' \
   /etc/php.ini
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
@@ -66,8 +67,15 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
   && php -r "unlink('composer-setup.php');"
 
 RUN sed -i \
+  -e 's|^error_log =.*|error_log = /dev/stderr|' \
+  /etc/php-fpm.conf  
+
+RUN sed -i \
   -e 's|^;clear_env = no|clear_env = no|' \
   -e 's|^listen =.*|listen = 127.0.0.1:9000|' \
+  -e 's|^;access.log =.*|access.log = /dev/stdout|' \
+  -e 's|^;catch_workers_output =.*|catch_workers_output = yes|' \
+  -e 's|^php_admin_value\[error_log\] =.*|php_admin_value[error_log] = /dev/stderr|' \  
   /etc/php-fpm.d/www.conf
 
 RUN mkdir -p /var/run/php-fpm/
