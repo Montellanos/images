@@ -13,9 +13,9 @@ ENV HEADERS_MORE_NGINX_MODULE_VERSION=0.37
 RUN apk update && apk add --no-cache \
   wget=1.21.4-r0 \
   build-base=0.5-r3 \
-  libcrypto3=3.1.7-r1 \
-  libssl3=3.1.7-r1 \
-  openssl-dev=3.1.7-r1 \ 
+  libcrypto3=3.1.8-r0 \
+  libssl3=3.1.8-r0 \
+  openssl-dev=3.1.8-r0 \ 
   pcre-dev=8.45-r3 \
   zlib-dev=1.3.1-r0 \
   busybox=1.36.1-r19
