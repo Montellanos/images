@@ -18,7 +18,8 @@ RUN apk update && apk add --no-cache \
   openssl-dev=3.1.8-r0 \ 
   pcre-dev=8.45-r3 \
   zlib-dev=1.3.1-r0 \
-  busybox=1.36.1-r19
+  busybox=1.36.1-r19 \
+  musl-utils=1.2.4_git20230717-r5
 
 RUN wget --no-verbose https://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz \
   && tar -xzvf nginx-${NGINX_VERSION}.tar.gz \
