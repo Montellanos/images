@@ -6,11 +6,11 @@ LABEL description="This image contains minor automation tools for Gitlab CI"
 LABEL version="26.1.3-dind"
 LABEL license="Apache License 2.0"
 
-ENV TRIVY_VERSION=0.59.0
-ENV ARGOCD_VERSION=2.13.4
+ENV TRIVY_VERSION=0.59.1
+ENV ARGOCD_VERSION=2.14.2
 
 RUN apk update && apk add --no-cache \
-  openssl=3.1.7-r1 \
+  openssl=3.1.8-r0 \
   busybox=1.36.1-r19 \
   openssh-client-common=9.6_p1-r1 \
   openssh=9.6_p1-r1 \
@@ -20,10 +20,12 @@ RUN apk update && apk add --no-cache \
   xmlstarlet=1.6.1-r2 \
   speedtest-cli=2.1.3-r6 \
   aws-cli=2.15.14-r0 \
-  curl=8.11.1-r0 \
+  curl=8.12.1-r0 \
   libexpat=2.6.4-r0 \
-  tzdata=2024b-r0 \
-  coreutils=9.4-r2
+  tzdata=2025a-r0 \
+  coreutils=9.4-r2 \
+  musl=1.2.4_git20230717-r5 \
+  musl-utils=1.2.4_git20230717-r5 
 
 RUN wget --no-verbose https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz -O trivy.tar.gz \
   && tar -xvf trivy.tar.gz \

@@ -14,8 +14,8 @@ RUN add-apt-repository ppa:git-core/ppa
 
 RUN apt-get update && \
     apt-get install -y \
-    git=1:2.47.0-0ppa2~ubuntu20.04.1 \
-    curl=7.68.0-1ubuntu2.24
+    git=1:2.48.1-0ppa1~ubuntu20.04.1 \
+    curl=7.68.0-1ubuntu2.25
 
 RUN apt-get clean
 

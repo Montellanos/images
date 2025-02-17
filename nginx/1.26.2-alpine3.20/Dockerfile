@@ -11,8 +11,10 @@ ENV NGINX_VERSION=1.26.2-r0
 RUN apk update && apk add --no-cache \
   nginx=${NGINX_VERSION} \
   nginx-mod-http-headers-more=${NGINX_VERSION} \
-  libcrypto3=3.3.2-r1 \
-  libssl3=3.3.2-r1
+  libcrypto3=3.3.3-r0 \
+  libssl3=3.3.3-r0 \
+  musl=1.2.5-r1 \
+  musl-utils=1.2.5-r1
 
 COPY ./default.conf /etc/nginx/http.d/default.conf
 COPY ./html /etc/nginx/html

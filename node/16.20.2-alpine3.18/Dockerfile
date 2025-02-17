@@ -8,7 +8,9 @@ LABEL license="Apache License 2.0"
 
 RUN apk update && apk add --no-cache \
   busybox=1.36.1-r7 \
-  libcrypto3=3.1.7-r1 \
-  libssl3=3.1.7-r1 \
+  libcrypto3=3.1.8-r0 \
+  libssl3=3.1.8-r0 \
   ssl_client=1.36.1-r7 \
-  jq=1.6-r4
+  jq=1.6-r4 \
+  musl=1.2.4-r3 \
+  musl-utils=1.2.4-r3

@@ -8,3 +8,4 @@ LABEL license="Apache License 2.0"
 
 RUN apk update && apk add --no-cache \
   jq=1.7.1-r0
+  
