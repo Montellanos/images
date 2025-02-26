@@ -41,6 +41,7 @@ RUN curl -sLO https://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz \
 
 RUN ln -s /usr/local/nginx/sbin/nginx /usr/bin/nginx
 
+
 RUN yum install -y -q \
   php8.2-${PHP_VERSION} \
   php8.2-bcmath-${PHP_VERSION}  \
@@ -94,9 +95,21 @@ RUN curl -sLO https://xdebug.org/files/xdebug-${XDEBUG_VERSION}.tgz \
 
 COPY ./xdebug.ini /etc/php.d/50-xdebug.ini
 COPY ./default.conf /usr/local/nginx/conf/nginx.conf
+COPY ./html /usr/local/nginx/html
 
 RUN  yum clean all -y \
   && rm -rf /var/cache/yum
+
+RUN rm -f \
+  /usr/local/nginx/conf/fastcgi.conf.default \
+  /usr/local/nginx/conf/mime.types.default \
+  /usr/local/nginx/conf/nginx.conf.default \
+  /usr/local/nginx/conf/scgi_params.default \
+  /usr/local/nginx/conf/fastcgi_params.default \
+  /usr/local/nginx/conf/uwsgi_params.default \
+  /usr/share/doc/php8.2-fpm/www.conf.default \
+  /usr/share/doc/php8.2-fpm/php-fpm.conf.default
+
 
 EXPOSE 80
 
