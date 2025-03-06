@@ -9,7 +9,7 @@ LABEL license="Apache License 2.0"
 ENV NGINX_VERSION=1.25.2
 ENV HEADERS_MORE_NGINX_MODULE_VERSION=0.34
 ENV PHP_VERSION=8.2.23-1.amzn2023.0.1
-ENV COMPOSER_VERSION=2.8.5
+ENV COMPOSER_VERSION=2.8.6
 ENV XDEBUG_VERSION=3.3.2
 
 RUN yum update -y -q \
@@ -40,7 +40,6 @@ RUN curl -sLO https://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz \
   && rm -rf nginx-${NGINX_VERSION}.tar.gz nginx-${NGINX_VERSION} v${HEADERS_MORE_NGINX_MODULE_VERSION}.tar.gz headers-more-nginx-module-${HEADERS_MORE_NGINX_MODULE_VERSION}
 
 RUN ln -s /usr/local/nginx/sbin/nginx /usr/bin/nginx
-
 
 RUN yum install -y -q \
   php8.2-${PHP_VERSION} \
@@ -109,7 +108,6 @@ RUN rm -f \
   /usr/local/nginx/conf/uwsgi_params.default \
   /usr/share/doc/php8.2-fpm/www.conf.default \
   /usr/share/doc/php8.2-fpm/php-fpm.conf.default
-
 
 EXPOSE 80
 

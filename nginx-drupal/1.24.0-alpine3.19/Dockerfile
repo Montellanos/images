@@ -8,7 +8,7 @@ LABEL license="Apache License 2.0"
 
 ENV NGINX_VERSION=1.24.0-r16
 ENV PHP_VERSION=8.2.26-r0
-ENV COMPOSER_VERSION=2.8.5
+ENV COMPOSER_VERSION=2.8.6
 
 RUN apk update && apk add --no-cache \
   nginx=${NGINX_VERSION} \
@@ -86,8 +86,8 @@ RUN mkdir -p /var/log/php-fpm82
 RUN mkdir -p /var/log/nginx
 
 COPY ./xdebug.ini /etc/php82/conf.d/docker-php-ext-xdebug.ini
-COPY ./default.conf /etc/nginx/http.d/default.conf
-COPY ./html /etc/nginx/html
+COPY ./default.conf /etc/nginx/nginx.conf
+COPY ./html /var/lib/nginx/html
 
 EXPOSE 80
 

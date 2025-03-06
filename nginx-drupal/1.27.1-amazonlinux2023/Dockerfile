@@ -9,7 +9,7 @@ LABEL license="Apache License 2.0"
 ENV NGINX_VERSION=1.27.1
 ENV HEADERS_MORE_NGINX_MODULE_VERSION=0.37
 ENV PHP_VERSION=8.3.10-1.amzn2023.0.1
-ENV COMPOSER_VERSION=2.8.5
+ENV COMPOSER_VERSION=2.8.6
 ENV XDEBUG_VERSION=3.3.2
 
 RUN yum update -y -q \
@@ -68,14 +68,14 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
 
 RUN sed -i \
   -e 's|^error_log =.*|error_log = /dev/stderr|' \
-  /etc/php-fpm.conf  
+  /etc/php-fpm.conf
 
 RUN sed -i \
   -e 's|^;clear_env = no|clear_env = no|' \
   -e 's|^listen =.*|listen = 127.0.0.1:9000|' \
   -e 's|^;access.log =.*|access.log = /dev/stdout|' \
   -e 's|^;catch_workers_output =.*|catch_workers_output = yes|' \
-  -e 's|^php_admin_value\[error_log\] =.*|php_admin_value[error_log] = /dev/stderr|' \  
+  -e 's|^php_admin_value\[error_log\] =.*|php_admin_value[error_log] = /dev/stderr|' \
   /etc/php-fpm.d/www.conf
 
 RUN mkdir -p /var/run/php-fpm/
@@ -94,9 +94,20 @@ RUN curl -sLO https://xdebug.org/files/xdebug-${XDEBUG_VERSION}.tgz \
 
 COPY ./xdebug.ini /etc/php.d/50-xdebug.ini
 COPY ./default.conf /usr/local/nginx/conf/nginx.conf
+COPY ./html /usr/local/nginx/html
 
 RUN  yum clean all -y \
   && rm -rf /var/cache/yum
+
+RUN rm -f \
+  /usr/local/nginx/conf/fastcgi.conf.default \
+  /usr/local/nginx/conf/mime.types.default \
+  /usr/local/nginx/conf/nginx.conf.default \
+  /usr/local/nginx/conf/scgi_params.default \
+  /usr/local/nginx/conf/fastcgi_params.default \
+  /usr/local/nginx/conf/uwsgi_params.default \
+  /usr/share/doc/php8.3-fpm/www.conf.default \
+  /usr/share/doc/php8.3-fpm/php-fpm.conf.default
 
 EXPOSE 80
 
