@@ -6,14 +6,14 @@ LABEL description="This image contains minor automation tools for Gitlab CI"
 LABEL version="27.0.2-dind"
 LABEL license="Apache License 2.0"
 
-ENV TRIVY_VERSION=0.59.1
-ENV ARGOCD_VERSION=2.14.2
+ENV TRIVY_VERSION=0.60.0
+ENV ARGOCD_VERSION=2.14.4
 
 RUN apk update && apk add --no-cache \
   openssl=3.3.3-r0 \
   busybox=1.36.1-r29 \
-  openssh-client-common=9.7_p1-r4 \
-  openssh=9.7_p1-r4 \
+  openssh-client-common=9.7_p1-r5 \
+  openssh=9.7_p1-r5 \
   wget=1.24.5-r0 \
   jq=1.7.1-r0 \
   git=2.45.3-r0 \

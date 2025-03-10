@@ -6,8 +6,8 @@ LABEL description="This image contains minor automation tools for Gitlab CI"
 LABEL version="24.0.4-dind"
 LABEL license="Apache License 2.0"
 
-ENV TRIVY_VERSION=0.59.1
-ENV ARGOCD_VERSION=2.14.3
+ENV TRIVY_VERSION=0.60.0
+ENV ARGOCD_VERSION=2.14.4
 
 RUN apk update && apk add --no-cache \
   libcrypto3=3.1.8-r0 \
@@ -16,8 +16,8 @@ RUN apk update && apk add --no-cache \
   openssl=3.1.8-r0 \
   busybox=1.36.1-r7 \
   krb5-libs=1.20.2-r1 \
-  openssh-client-common=9.3_p2-r2 \
-  openssh=9.3_p2-r2 \
+  openssh-client-common=9.3_p2-r3 \
+  openssh=9.3_p2-r3 \
   wget=1.21.4-r0 \
   jq=1.6-r4 \
   git=2.40.4-r0 \

@@ -46,7 +46,7 @@ RUN apk update && apk add --no-cache \
   php84-pdo_mysql=${PHP_VERSION} \
   php84-phar=${PHP_VERSION} \
   php84-pear=${PHP_VERSION} \
-  php84-pecl-xdebug=3.4.1-r0 \
+  php84-pecl-xdebug=3.4.2-r0 \
   php84-zip=${PHP_VERSION} \
   php84-mysqli=${PHP_VERSION}
 
